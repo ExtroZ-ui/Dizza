@@ -4,5 +4,4 @@
     android:useLevel="false"
     android:innerRadius="0dp">
     <solid android:color="@color/black"/>
-
 </shape>

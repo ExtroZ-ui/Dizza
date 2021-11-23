@@ -45,7 +45,7 @@ class GuidActivity : AppCompatActivity() {
     }
 
     fun swipBut(view: android.view.View) {
-        startActivity(Intent(this@GuidActivity, SignUpActivity::class.java))
+        startActivity(Intent(this@GuidActivity, SignInActivity::class.java))
     }
 
 }
