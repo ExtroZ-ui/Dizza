@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuidActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <Button
+        android:id="@+id/swip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="360dp"
+        android:gravity="center_horizontal"
+        android:visibility="visible"
+        android:onClick="swipBut"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        app:layout_constraintEnd_toStartOf="@+id/view_pager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="660dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#00000000"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabIndicatorColor="#00FFFFFF" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
