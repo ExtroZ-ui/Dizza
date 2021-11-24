@@ -1,13 +1,12 @@
 package com.example.dodopizza
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
-import com.example.dodopizza.AdapterVp.login
+import com.example.dodopizza.AdapterVp.Login
 import com.example.dodopizza.net.ApiRet
 import com.example.dodopizza.net.MyRetrofit
 import retrofit2.Call
@@ -29,22 +28,23 @@ class SignInActivity : AppCompatActivity() {
 
     fun sign(view: android.view.View) {
         if (email.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email.text).matches() && password.text.isNotEmpty()) {
-            val log = MyRetrofit().getRetrofit()
-            val getApi = log.create(ApiRet::class.java)
-            var hashMap: HashMap<String, String> = HashMap()
-            hashMap.put("email",email.text.toString())
-            hashMap.put("password",password.text.toString())
+            val retrofit = MyRetrofit().getRetrofit().create(ApiRet::class.java)
+            val hashMap: HashMap<String, String> = HashMap<String, String>()
+            hashMap["email"] = email.text.toString()
+            hashMap["password"] = password.text.toString()
 
-            val log_call: retrofit2.Call<login> = getApi.getAuth(hashMap)
-            log_call.enqueue(object : retrofit2.Callback<login>{
-                override fun onResponse(call: Call<login>, response: Response<login>) {
-                    if (response.isSuccessful){
+            val call: Call<Login> = retrofit.login(hashMap)
+            call.enqueue(object: retrofit2.Callback<Login>{
+                override fun onResponse(call: Call<Login>, response: Response<Login>) {
+                    if (response.body()?.token != null){
+                        Login.userToken = response.body()?.token
                         Toast.makeText(this@SignInActivity,"Успешно",Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@SignInActivity,MainActivity::class.java))
+                        finish()
                     }
                 }
 
-                override fun onFailure(call: Call<login>, t: Throwable) {
+                override fun onFailure(call: Call<Login>, t: Throwable) {
                     Toast.makeText(this@SignInActivity,t.message,Toast.LENGTH_LONG).show()
                 }
 

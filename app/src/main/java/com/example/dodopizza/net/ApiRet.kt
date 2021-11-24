@@ -1,12 +1,11 @@
 package com.example.dodopizza.net
 
 
-import com.example.dodopizza.AdapterVp.login
+import com.example.dodopizza.AdapterVp.Login
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiRet {
-    @POST("user/login")
-    fun getAuth(@Body hashMap: HashMap<String,String>):Call<login>
+    @POST("auth/login")
+    fun login(@Body hashMap: HashMap<String, String>): Call<Login.Login>
 }

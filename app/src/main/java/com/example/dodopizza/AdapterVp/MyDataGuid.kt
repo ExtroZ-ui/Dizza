@@ -4,12 +4,11 @@ import com.example.dodopizza.R
 
 data class MyDataGuid(val title:String, val descr:String,val image:Int)
 
-data class login(val id:Int,
-                 val email:String,
-                 val nickName:String,
-                 val avatar:String,
-                 val token:String)
-
+data class user(val userId: String,
+                 val firstName: String,
+                 val lastName: String,
+                 val email: String,
+                 val avatar: String)
 
 
 object List{
