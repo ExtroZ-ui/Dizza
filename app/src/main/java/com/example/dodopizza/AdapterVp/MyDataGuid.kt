@@ -4,6 +4,14 @@ import com.example.dodopizza.R
 
 data class MyDataGuid(val title:String, val descr:String,val image:Int)
 
+data class login(val id:Int,
+                 val email:String,
+                 val nickName:String,
+                 val avatar:String,
+                 val token:String)
+
+
+
 object List{
         val list = arrayListOf(
             MyDataGuid("Быстрая доставка!", "Гарантируем доставку не более чем за 60 минут с момента приема заказа. Если курьеры не успеют, вы получите сертификат на большую бесплатную пиццу с доставкой. ",
