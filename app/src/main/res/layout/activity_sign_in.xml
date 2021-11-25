@@ -88,7 +88,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_sign_up_in"
-        android:hint="Пороль"
+        android:hint="Пароль"
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textColorHint="@color/white"

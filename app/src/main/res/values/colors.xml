@@ -10,4 +10,5 @@
     <color name="orange">#FF6900</color>
     <color name="text_origin">#FF832C</color>
     <color name="gray">#EAEAEA</color>
+    <color name="gray_dark">#6A6A6A</color>
 </resources>
