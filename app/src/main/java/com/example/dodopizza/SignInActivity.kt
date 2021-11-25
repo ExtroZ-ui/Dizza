@@ -29,7 +29,7 @@ class SignInActivity : AppCompatActivity() {
     fun sign(view: android.view.View) {
         if (email.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email.text).matches() && password.text.isNotEmpty()) {
             val retrofit = MyRetrofit().getRetrofit().create(ApiRet::class.java)
-            val hashMap: HashMap<String, String> = HashMap<String, String>()
+            val hashMap: HashMap<String, String> = HashMap()
             hashMap["email"] = email.text.toString()
             hashMap["password"] = password.text.toString()
 
@@ -42,10 +42,12 @@ class SignInActivity : AppCompatActivity() {
                         startActivity(Intent(this@SignInActivity,MainActivity::class.java))
                         finish()
                     }
+                    else{
+                    }
                 }
 
                 override fun onFailure(call: Call<Login>, t: Throwable) {
-                    Toast.makeText(this@SignInActivity,t.message,Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@SignInActivity,"Введите корректные данные",Toast.LENGTH_LONG).show()
                 }
 
             })

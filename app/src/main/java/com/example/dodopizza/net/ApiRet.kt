@@ -7,5 +7,5 @@ import retrofit2.http.*
 
 interface ApiRet {
     @POST("auth/login")
-    fun login(@Body hashMap: HashMap<String, String>): Call<Login.Login>
+    fun login(@Body hashMap: HashMap<String, String>): Call<Login>
 }
