@@ -39,7 +39,7 @@ class SignInActivity : AppCompatActivity() {
                     if (response.body()?.token != null){
                         Login.userToken = response.body()?.token
                         Toast.makeText(this@SignInActivity,"Успешно",Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                        //startActivity(Intent(this@SignInActivity, MainActivity::class.java))
 
                     }
                     else{
